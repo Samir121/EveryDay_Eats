@@ -46,19 +46,15 @@ public class RestaurantServiceImpl implements RestaurantService {
     
     restaurantsList = restaurantRepositoryService.findAllRestaurantsCloseBy(getRestaurantsRequest.getLatitude(),
                       getRestaurantsRequest.getLongitude(),currentTime,servingRadius);
-
+    // System.out.println(restaurantsList);
     GetRestaurantsResponse getRestaurantsResponse = new GetRestaurantsResponse(restaurantsList);
+    // System.out.println(getRestaurantsResponse);
     return getRestaurantsResponse;
   }
 
   public Double checkRadius(LocalTime currentTime){
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss", Locale.US);
-    Boolean flag = 
-    //   (currTime.isAfter(LocalTime.parse("7:59:59",formatter)) && currTime.isBefore(LocalTime.parse("10:00:01",formatter))) ||
-    //   (currTime.isAfter(LocalTime.parse("12:59:59",formatter)) && currTime.isBefore(LocalTime.parse("14:00:01",formatter))) ||
-    //   (currTime.isAfter(LocalTime.parse("18:59:59",formatter)) && currTime.isBefore(LocalTime.parse("21:00:01")))
-    // );
-
+    Boolean flag =
     (currentTime.isAfter(LocalTime.parse("07:59:59", formatter)) && currentTime.isBefore(LocalTime.parse("10:00:01", formatter)))
     || (currentTime.isAfter(LocalTime.parse("12:59:59", formatter)) && currentTime.isBefore(LocalTime.parse("14:00:01", formatter)))
     || (currentTime.isAfter(LocalTime.parse("18:59:59", formatter)) && (currentTime.isBefore(LocalTime.parse("21:00:01", formatter))));

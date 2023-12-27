@@ -39,21 +39,39 @@ import lombok.NoArgsConstructor;
 //  ]
 // }
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-//@JsonIgnoreProperties
+@NoArgsConstructor
 public class Restaurant {
-    @JsonIgnore
-    private String id;
-    private String restaurantId;
-    private String name;
-    private String city;
-    private URI imageUrl;
-    private Double latitude;
-    private Double longitude;
-    private String opensAt;
-    private String closesAt;
-    private ArrayList<String> attributes;
+
+  @NotNull @JsonIgnore
+  private String id;
+
+  @NotNull
+  private String restaurantId;
+
+  @NotNull
+  private String name;
+
+  @NotNull
+  private String city;
+
+  @NotNull
+  private String imageUrl;
+
+  @NotNull
+  private Double latitude;
+
+  @NotNull
+  private Double longitude;
+
+  @NotNull
+  private String opensAt;
+
+  @NotNull
+  private String closesAt;
+
+  @NotNull
+  private List<String> attributes = new ArrayList<>();
 
 }
 

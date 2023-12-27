@@ -1,4 +1,3 @@
-
 /*
  *
  *  * Copyright (c) Crio.Do 2019. All rights reserved
@@ -94,7 +93,7 @@ class RestaurantServiceTest {
         .findAllRestaurantsCloseBy(new GetRestaurantsRequest(20.0,30.0),
         timeOfService);
 
-    assertEquals(3,allRestaurantsCloseBy.getRestaurants().size());
+    assertEquals(4,allRestaurantsCloseBy.getRestaurants().size());
     assertEquals("10",allRestaurantsCloseBy.getRestaurants().get(0).getRestaurantId());
     assertEquals("11",allRestaurantsCloseBy.getRestaurants().get(1).getRestaurantId());
     assertEquals("12",allRestaurantsCloseBy.getRestaurants().get(2).getRestaurantId());

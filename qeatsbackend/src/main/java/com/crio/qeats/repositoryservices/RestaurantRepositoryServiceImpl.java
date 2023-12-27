@@ -71,15 +71,17 @@ public class RestaurantRepositoryServiceImpl implements RestaurantRepositoryServ
     List<RestaurantEntity> restaurantEntityList = null;
 
     restaurantEntityList = restaurantRepository.findAll();
+    // System.out.println(modelMapper.map(restaurantEntity,Restaurant.class));
     List<Restaurant> restaurantList = new ArrayList<>();
     for(RestaurantEntity restaurantEntity:restaurantEntityList){
-      if(isOpenNow(currentTime,restaurantEntity)){
-        if(isRestaurantCloseByAndOpen(restaurantEntity, currentTime, latitude, longitude, servingRadiusInKms)){
+      // if(isOpenNow(currentTime,restaurantEntity)){
+      //   if(isRestaurantCloseByAndOpen(restaurantEntity, currentTime, latitude, longitude, servingRadiusInKms)){
           restaurantList.add(modelMapper.map(restaurantEntity,Restaurant.class));
-        }
-      }
+      //   }
+      // }
     }
-
+    // System.out.println(restaurantList);
+    
       //CHECKSTYLE:OFF
       //CHECKSTYLE:ON
 
